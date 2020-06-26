@@ -1,4 +1,4 @@
-apiVersion: policy.mcm.ibm.com/v1alpha1
+apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
   name: openshift-disconnected-policy-clusterversion-upstream
@@ -19,9 +19,10 @@ spec:
         metadata:
           name: version
         spec:
-          channel: stable-4.4
-          clusterID: example-cluster-id
-          upstream: http://example-cincinnati-policy-engine-uri/api/upgrades_info/v1/graph
+          # channel: stable-4.3
+          # clusterID: 70d93278-a909-4f87-b388-4566ba7814b1
+          #upstream: https://api.openshift.com/api/upgrades_info/v1/graph2
+          upstream: https://example-cincinnati-policy-engine-route-openshift-cincinnati.apps.rwsu-managed.devcluster.openshift.com/api/upgrades_info/v1/graph2
 ---
 apiVersion: mcm.ibm.com/v1alpha1
 kind: PlacementBinding
@@ -48,4 +49,5 @@ spec:
   clusterSelector:
     matchLabels:
       vendor: OpenShift
+
 
